@@ -91,51 +91,51 @@
           class="card-btn bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
         >
           <img
-            class="rounded-t-lg img flex justify-center w-full mb-1 lg:mb-5"
+            class="rounded-t-lg img flex justify-center w-full mb-1 lg:mb-2"
             :src="product.thumbnail"
           />
 
-          <div class="p-5">
+          <div class="lg:px-3 px-2">
             <a href="#">
               <h5
-                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white line-clamp-1"
+                class="text-xl font-bold tracking-tight text-gray-900 dark:text-white line-clamp-1"
               >
                 {{ product.title }}
               </h5>
             </a>
             <p
-              class="hidden md:inline-flex mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3"
+              class="hidden md:inline-flex font-normal text-gray-700 dark:text-gray-400 line-clamp-3"
             >
               {{ product.description }}
             </p>
 
-            <div class="flex bot-div">
-              <div class="w-full">
-                <p
-                  class="mr-2 md:text-2xl text-lg font-bold tracking-tight text-gray-900 dark:text-white"
-                >
-                  ${{ product.price }}
-                </p>
-
-                <div class="flex rating mt-2">
+            <div
+              class="flex bot-div justify-between lg:w-[225px] md:w-full w-[150px] items-end"
+            >
+              <div class="">
+                <div class="flex">
+                  <LayoutsRating />
                   <span
-                    class="bg-green-100 rating text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"
+                    class="rating text-green-800 ml-2 text-xs font-medium rounded dark:text-green-300"
                   >
                     {{ product.rating }}</span
                   >
-                  <LayoutsRating />
                 </div>
+                <p
+                  class="md:text-2xl text-lg font-bold tracking-tight text-gray-900 dark:text-white"
+                >
+                  ${{ product.price }}
+                </p>
               </div>
 
               <NuxtLink :to="`/products/${product.id}`">
                 <div
-                  class="cart-icon hidden md:inline-flex items-center px-3 py-2 ml-28 mt-7 text-sm font-medium text-center text-white rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                  class="cart-icon hidden md:inline-flex px-3 py-2 text-sm font-medium text-white rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-800"
                 >
                   View Details
-                  <IconsArrowRight />
                 </div>
                 <div
-                  class="cart-icon md:hidden inline-flex items-center px-3 py-2 mt-2 ml-14 text-sm font-medium text-center text-white rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                  class="cart-icon md:hidden inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-500 dark:hover:bg-green-700 dark:focus:ring-green-800"
                 >
                   <IconsCarts class="icon-cart" />
                 </div>
@@ -212,9 +212,6 @@ function filteredList() {
 .dropdown {
   height: 30px;
 }
-.rating {
-  height: 10px;
-}
 .products {
   background-color: #f4f9fc;
 }
@@ -261,7 +258,7 @@ label {
 }
 .cart-icon {
   background-color: #0e9f6e;
-  width: 75px;
+
   @media (max-width: 700px) {
     width: 30px;
     height: 30px;
